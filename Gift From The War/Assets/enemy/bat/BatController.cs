@@ -9,11 +9,16 @@ public class BatController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        state = new batMove();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public void ChangeState(BaseState _state)
     {
         
     }
