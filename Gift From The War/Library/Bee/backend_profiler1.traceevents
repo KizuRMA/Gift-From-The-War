@@ -1,6 +1,7 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ,{ "pid":12345, "tid":0, "ts":1651019899187200, "dur":694, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651019899187898, "dur":67, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1651019899187989, "dur":11, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -663,6 +664,8 @@
 ,{ "pid":12345, "tid":16, "ts":1651019899203474, "dur":909388, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651019900115206, "dur":1639, "ph":"X", "name": "ProfilerWriteOutput" }
 =======
+=======
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 ,{ "pid":12345, "tid":0, "ts":1651018728911040, "dur":805, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728911849, "dur":803, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728912680, "dur":13, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -1457,6 +1460,7 @@
 ,{ "pid":12345, "tid":16, "ts":1651018734952194, "dur":0, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ScriptAssemblies" }}
 ,{ "pid":12345, "tid":16, "ts":1651018734952195, "dur":0, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651018734954839, "dur":2065, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
 >>>>>>> AddSphere_Branch
 =======
 ,{ "pid":12345, "tid":0, "ts":1650965316916588, "dur":656, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
@@ -2366,4 +2370,6 @@
 ,{ "pid":12345, "tid":16, "ts":1650965317529991, "dur":83146, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1650965317616508, "dur":2427, "ph":"X", "name": "ProfilerWriteOutput" }
 >>>>>>> Branch_add_CubeModel
+=======
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 ,

@@ -11,6 +11,7 @@
 { "pid": 0, "tid": 1, "ph": "M", "name": "thread_name", "args": { "name": "" } },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "pid": 0, "tid": 1, "ts": 1651019898559583, "dur": 922337203685477580, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
 { "pid": 0, "tid": 1, "ts": 1651019898560896, "dur": 39665, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
 { "pid": 0, "tid": 1, "ts": 1651019898600762, "dur": 62690, "ph": "X", "name": "Run Backend", "args": {} },
@@ -795,6 +796,17 @@
 { "pid": 0, "tid": 1, "ts": 1651018734999041, "dur": 651, "ph": "X", "name": "ChromeTraceHeader", "args": {} },
 { "pid": 0, "tid": 1, "ts": 1651018735002526, "dur": 1224, "ph": "X", "name": "", "args": {} },
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+=======
+{ "pid": 0, "tid": 1, "ts": 1651018728278569, "dur": 922337203685477580, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018728279829, "dur": 38620, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018728319193, "dur": 82626, "ph": "X", "name": "Run Backend", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018728401839, "dur": 453130, "ph": "X", "name": "BuildProgram", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018728854971, "dur": 6132582, "ph": "X", "name": "Run Backend", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018734987569, "dur": 10066, "ph": "X", "name": "Finish", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018734999041, "dur": 651, "ph": "X", "name": "ChromeTraceHeader", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1651018735002526, "dur": 1224, "ph": "X", "name": "", "args": {} },
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 ,{ "pid":12345, "tid":0, "ts":1651018728375085, "dur":729, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728375820, "dur":141, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728375996, "dur":13, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -1693,6 +1705,7 @@
 ,{ "pid":12345, "tid":0, "ts":1651018734954839, "dur":2065, "ph":"X", "name": "ProfilerWriteOutput" }
 ,{ "pid": 0, "tid": 1, "ts": 1651018735005726, "dur": 545, "ph": "X", "name": "backend_profiler1.traceevents", "args": {} },
 { "pid": 0, "tid": 1, "ts": 1651018735000830, "dur": 5456, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+<<<<<<< HEAD
 >>>>>>> AddSphere_Branch
 =======
 { "pid": 0, "tid": 1, "ts": 1650965316126797, "dur": 922337203685477580, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
@@ -2725,6 +2738,8 @@
 ,{ "pid": 0, "tid": 1, "ts": 1650965317639462, "dur": 661, "ph": "X", "name": "backend_profiler1.traceevents", "args": {} },
 { "pid": 0, "tid": 1, "ts": 1650965317634189, "dur": 5965, "ph": "X", "name": "Write chrome-trace events", "args": {} },
 >>>>>>> Branch_add_CubeModel
+=======
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 {}
 
 ]

@@ -1,6 +1,7 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ,{ "pid":12345, "tid":0, "ts":1651019898650786, "dur":927, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651019898651719, "dur":138, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1651019898651946, "dur":16, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -91,6 +92,8 @@
 ,{ "pid":12345, "tid":16, "ts":1651019898654629, "dur":942, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651019898658035, "dur":369, "ph":"X", "name": "ProfilerWriteOutput" }
 =======
+=======
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 ,{ "pid":12345, "tid":0, "ts":1651018728375085, "dur":729, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728375820, "dur":141, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728375996, "dur":13, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -180,6 +183,7 @@
 ,{ "pid":12345, "tid":16, "ts":1651018728377830, "dur":1070, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":16, "ts":1651018728378901, "dur":962, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1651018728381761, "dur":490, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
 >>>>>>> AddSphere_Branch
 =======
 ,{ "pid":12345, "tid":0, "ts":1650965316237983, "dur":10827, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
@@ -282,4 +286,6 @@
 ,{ "pid":12345, "tid":16, "ts":1650965316252974, "dur":1002, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1650965316257482, "dur":657, "ph":"X", "name": "ProfilerWriteOutput" }
 >>>>>>> Branch_add_CubeModel
+=======
+>>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 ,
