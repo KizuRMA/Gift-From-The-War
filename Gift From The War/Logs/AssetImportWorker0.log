@@ -1,0 +1,222 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.1f1 (3b70a0754835) revision 3895456'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'ja' Physical Memory: 32649 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Git hub/Gift-From-The-War/Gift From The War
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60838
+Successfully changed project path to: D:/Git hub/Gift-From-The-War/Gift From The War
+D:/Git hub/Gift-From-The-War/Gift From The War
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 19.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.1f1 (3b70a0754835)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Git hub/Gift-From-The-War/Gift From The War/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8043 MB
+    Driver:   30.0.15.1179
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56288
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005282 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 19.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.468 seconds
+Domain Reload Profiling:
+	ReloadAssembly (468ms)
+		BeginReloadAssembly (58ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (318ms)
+			LoadAssemblies (56ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (86ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (168ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (20ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (105ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001138 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.677 seconds
+Domain Reload Profiling:
+	ReloadAssembly (677ms)
+		BeginReloadAssembly (89ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (15ms)
+		EndReloadAssembly (495ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (137ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (222ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (39ms)
+				ProcessInitializeOnLoadAttributes (153ms)
+				ProcessInitializeOnLoadMethodAttributes (19ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1537 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 16 unused Assets / (56.2 KB). Loaded Objects now: 2014.
+Memory consumption went from 74.7 MB to 74.6 MB.
+Total: 2.087000 ms (FindLiveObjects: 0.142300 ms CreateObjectMapping: 0.054100 ms MarkObjects: 1.820600 ms  DeleteObjects: 0.069300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1015688.952192 seconds.
+  path: Assets/enemy/bat
+  artifactKey: Guid(99d8c1eb20d197a4db9ecfcea4216213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat using Guid(99d8c1eb20d197a4db9ecfcea4216213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69b9e7fc9c1186d6fa845264c322e377') in 0.006424 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/enemy/bat/Bat.fbx
+  artifactKey: Guid(80001d399ecd38a44868b235c662bbcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/Bat.fbx using Guid(80001d399ecd38a44868b235c662bbcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89ede2bf6d7b4538893c0ce9243d86b7') in 0.159003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 492.001746 seconds.
+  path: Assets/enemy/bat/Bat 1.fbx
+  artifactKey: Guid(4d13b12d2db416b42b40e27323ecfb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/Bat 1.fbx using Guid(4d13b12d2db416b42b40e27323ecfb78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '716b9d3e5998c9562e138662b08edfee') in 0.071158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.739312 seconds.
+  path: Assets/enemy/bat/mater
+  artifactKey: Guid(89d500017e581d44881e4720fa4b0431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater using Guid(89d500017e581d44881e4720fa4b0431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d9c0cb63ad7b89e2cf4cdc4d6423f7f') in 0.005910 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.068826 seconds.
+  path: Assets/enemy/bat/mater/ArmMaterial.mat
+  artifactKey: Guid(74bd7a03c11181b4ab91deab952557c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/ArmMaterial.mat using Guid(74bd7a03c11181b4ab91deab952557c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb4861a4a363365d11a3f3ff15788f20') in 0.015805 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/enemy/bat/mater/HeadMaterial.mat
+  artifactKey: Guid(44a190ec3b383204e856bdc011e31c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/HeadMaterial.mat using Guid(44a190ec3b383204e856bdc011e31c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad6b6029db241ba72d0c00f3811bdb4e') in 0.012082 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/enemy/bat/mater/WingsMat.mat
+  artifactKey: Guid(8942169c909f3ea4e82bc5747bf77323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/WingsMat.mat using Guid(8942169c909f3ea4e82bc5747bf77323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7f27cc6d1be73dade7ee54cd44afd9d') in 0.013773 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/enemy/bat/mater/FangMaterial.mat
+  artifactKey: Guid(87b54e4778dd6004ca15046ca407e134) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/FangMaterial.mat using Guid(87b54e4778dd6004ca15046ca407e134) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff783194df43808bc12c6d47637c979') in 0.012957 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/enemy/bat/mater/LeatherMat.mat
+  artifactKey: Guid(0906e96ca23d7be4896b91f66fd6206a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/LeatherMat.mat using Guid(0906e96ca23d7be4896b91f66fd6206a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dce6d56c4b5ade8f2226b12eb2c91f76') in 0.015446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/enemy/bat/mater/LowerBodyMaterial.mat
+  artifactKey: Guid(07793c5e83b25794bbee95f1689e5cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/enemy/bat/mater/LowerBodyMaterial.mat using Guid(07793c5e83b25794bbee95f1689e5cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86d52f4d3b6137c2494f9a9c71b71e7b') in 0.016024 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
