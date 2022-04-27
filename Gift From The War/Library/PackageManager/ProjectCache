@@ -5,44 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      ticks: 637866166423394453
-=======
-      ticks: 637865628086667488
->>>>>>> AddSphere_Branch
+      ticks: 637866211131339332
     m_Hash: 2547451094
-=======
-      ticks: 637865620765550245
-    m_Hash: 1341935307
->>>>>>> Branch_add_CubeModel
-=======
-      ticks: 637865628086667488
-    m_Hash: 2547451094
->>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
   m_LockFileStatus:
     m_FilePath: C:/Git Hub/Gift-From-The-War/Gift From The War/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      ticks: 637866166423404427
-=======
-      ticks: 637865628086677430
->>>>>>> AddSphere_Branch
+      ticks: 637866211131339332
     m_Hash: 494534788
-=======
-      ticks: 637865620765550245
-    m_Hash: 4068469782
->>>>>>> Branch_add_CubeModel
-=======
-      ticks: 637865628086677430
-    m_Hash: 494534788
->>>>>>> ed7d9f6ba4b9b5a0f1131d078ce85a038b216cdf
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
