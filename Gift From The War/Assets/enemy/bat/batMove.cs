@@ -14,8 +14,6 @@ public class batMove : BaseState
     [SerializeField] float forwardAngle;
     [SerializeField] float playerFromInterval;
 
-    
-
     // Start is called before the first frame update
     public override void Start()
     {
@@ -44,10 +42,10 @@ public class batMove : BaseState
             Vector3 _myPos = this.transform.position;
 
             //プレイヤーに近づきすぎない処理
-            float dis = Vector3.Distance(_myPos,_playerPos);
+            float dis = Vector3.Distance(_myPos, _playerPos);
 
             //プレイヤーとの距離を調べる
-            if(dis <= playerFromInterval)
+            if (dis <= playerFromInterval)
             {
                 //近づきすぎている場合
                 _agent.destination = _myPos;
