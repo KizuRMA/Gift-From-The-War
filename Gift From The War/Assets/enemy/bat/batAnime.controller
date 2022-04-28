@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-7072760109497772684
+--- !u!1102 &-8280690697073008170
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|FlappingWings 0"
-  m_Speed: 1
+  m_Name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|FlappingWings"
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -20,12 +20,26 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2700757372770071843, guid: 4d13b12d2db416b42b40e27323ecfb78, type: 3}
+  m_Motion: {fileID: -2700757372770071843, guid: 80001d399ecd38a44868b235c662bbcb, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1109 &-5669483128594394702
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8280690697073008170}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1107 &-5105573524044776599
 AnimatorStateMachine:
   serializedVersion: 6
@@ -36,21 +50,22 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -7072760109497772684}
-    m_Position: {x: 390, y: 90, z: 0}
+    m_State: {fileID: -8280690697073008170}
+    m_Position: {x: 440, y: 160, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 4194761363015947764}
-    m_Position: {x: 350, y: 180, z: 0}
+    m_State: {fileID: 1430530900084360730}
+    m_Position: {x: 448.72595, y: 211.35019, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
-  m_EntryTransitions: []
+  m_EntryTransitions:
+  - {fileID: -5669483128594394702}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 60, y: 150, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -7072760109497772684}
+  m_DefaultState: {fileID: -8280690697073008170}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -73,14 +88,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &4194761363015947764
+--- !u!1102 &1430530900084360730
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|FoldTheWings"
+  m_Name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|FoldTheWing"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -93,7 +108,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5431968609964665420, guid: 4d13b12d2db416b42b40e27323ecfb78, type: 3}
+  m_Motion: {fileID: -1162000088104448797, guid: 80001d399ecd38a44868b235c662bbcb, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
