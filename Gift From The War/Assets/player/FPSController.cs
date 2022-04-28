@@ -8,57 +8,42 @@ public class FPSController : MonoBehaviour
     private float moveSpeed;
     [SerializeField] private float normalSpeed = 3; // 移動速度
     [SerializeField] private float dashSpeedRaito = 3; //走る速さの倍率
-    [SerializeField] private float jumpPower = 3; // ジャンプ力
-    [SerializeField] private float fallSpeed = 3; //落下スピード
-    [SerializeField] private float jumpingMoveSpeedRaito = 3; //ジャンプ中の移動速度補正
-    [SerializeField] private float landingSpeed = 3; //着地スピード
-    [SerializeField] private float airResistRaito = 3; //空気抵抗の変化量
-    private float airResist = 0; //今の空気抵抗
-    [SerializeField] private float jumpingAirResistRaito = 3; //ジャンプ中の空気抵抗の変化量
-    private float jumpingAirResist = 1; //ジャンプ中の今の空気抵抗
     [SerializeField] private float turnSpeed = 20; //振り向く速さ
     private float turnRaito = 180; //振り向く段階
+    private bool moveFlg = false;
+    private bool dashFlg = false;
 
-    private CharacterController _characterController; // CharacterControllerのキャッシュ
-    private Transform _transform; // Transformのキャッシュ
-    private Vector3 _moveVelocity; // キャラの移動速度情報
-    private Vector3 _moveVec; // 合成用
+    private CharacterController CC;
+    private Vector3 moveVelocity; // キャラの移動速度情報
+    private Vector3 moveVec; // 合成用
 
     public GameObject cam;
     Quaternion cameraRot, characterRot;
-    float Xsensityvity = 3f, Ysensityvity = 3f;
+    [SerializeField] private float Xsensityvity = 3f, Ysensityvity = 3f;
 
     bool cursorLock = true;
 
-    //変数の宣言(角度の制限用)
-    float minX = -60f, maxX = 60f;
+    //角度の制限用
+    [SerializeField] float minX = -45f, maxX = 45f;
 
     // Start is called before the first frame update
     void Start()
     {
-        _characterController = GetComponent<CharacterController>(); // 毎フレームアクセスするので、負荷を下げるためにキャッシュしておく
-        _transform = transform; // Transformもキャッシュすると少しだけ負荷が下がる
+        CC = GetComponent<CharacterController>(); // 毎フレームアクセスするので、負荷を下げるためにキャッシュしておく
         cameraRot = cam.transform.localRotation;
         characterRot = transform.localRotation;
 
         moveSpeed = normalSpeed;
-        airResist = landingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (turnRaito >= turnSpeed) //180ターンを使っていなかったら
         {
-            float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
-            float yRot = Input.GetAxis("Mouse Y") * Xsensityvity;
-
-            cameraRot *= Quaternion.Euler(-yRot, 0, 0);
-            characterRot *= Quaternion.Euler(0, xRot, 0);
+            CameraMove();
         }
 
-        //Updateの中で作成した関数を呼ぶ
         cameraRot = ClampRotation(cameraRot);
 
         MiddleClick();
@@ -67,30 +52,26 @@ public class FPSController : MonoBehaviour
         transform.localRotation = characterRot;
 
         UpdateCursorLock();
+
+        MoveKey();
+        DashJudge();
     }
 
     private void FixedUpdate()
     {
-        _moveVelocity.x = Input.GetAxis("Horizontal");
-        _moveVelocity.z = Input.GetAxis("Vertical");
 
-        IsGroundProcess();
+        Dash();
 
-        _moveVec = cam.transform.forward * _moveVelocity.z + cam.transform.right * _moveVelocity.x;
-        _moveVec.y = 0;
+        Move();
 
-        _moveVec.Normalize();
-        _moveVec *= moveSpeed;
-        _moveVec.y = _moveVelocity.y;
-
-        _characterController.Move(_moveVec);
+        CC.Move(moveVec);
 
     }
 
     //--------------------------------------------------------------------
     //自作関数
     //--------------------------------------------------------------------
-    public void UpdateCursorLock()
+    public void UpdateCursorLock()  //カーソル表示切り替え
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -100,7 +81,6 @@ public class FPSController : MonoBehaviour
         {
             cursorLock = true;
         }
-
 
         if (cursorLock)
         {
@@ -128,41 +108,65 @@ public class FPSController : MonoBehaviour
         }
     }
 
-    public void IsGroundProcess()
+    public void MoveKey()
     {
-        if (_characterController.isGrounded)
+        moveVelocity.x = Input.GetAxis("Horizontal");
+        moveVelocity.z = Input.GetAxis("Vertical");
+
+        if(moveVelocity.x == 0 && moveVelocity.z == 0)
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                // ジャンプ処理
-                _moveVelocity.y = jumpPower; // ジャンプの際は上方向に移動させる
-
-                jumpingAirResist = 1.0f;
-            }
-
-            if (airResist < 1)
-            {
-                airResist += airResistRaito;
-                if (airResist > 1)
-                {
-                    airResist = 1.0f;
-                }
-
-                moveSpeed *= airResist;
-                moveSpeed *= airResist;
-            }
+            moveFlg = false;
         }
         else
         {
-            // 重力による加速
-            _moveVelocity.y += Physics.gravity.y * fallSpeed;
+            moveFlg = true;
+        }
+    }
 
-            moveSpeed *= jumpingMoveSpeedRaito * jumpingAirResist;
-            moveSpeed *= jumpingMoveSpeedRaito * jumpingAirResist;
+    public void Move()
+    {
 
-            jumpingAirResist -= jumpingAirResistRaito;
+        moveVec = cam.transform.forward * moveVelocity.z + cam.transform.right * moveVelocity.x;
+        moveVec.y = 0;
 
-            airResist = landingSpeed;
+        moveVec.Normalize();
+        moveVec *= moveSpeed;
+
+        moveVec.y += Physics.gravity.y;
+    }
+
+    public void CameraMove()
+    {
+        //マウスから角度を計算
+        float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
+        float yRot = Input.GetAxis("Mouse Y") * Xsensityvity;
+
+        //カメラとキャラクターの回転を代入
+        cameraRot *= Quaternion.Euler(-yRot, 0, 0);
+        characterRot *= Quaternion.Euler(0, xRot, 0);
+    }
+
+    public void DashJudge()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            dashFlg = true;
+        }
+        else
+        {
+            dashFlg = false;
+        }
+    }
+
+    public void Dash()
+    {
+        if (dashFlg)
+        {
+            moveSpeed = normalSpeed * dashSpeedRaito;
+        }
+        else
+        {
+            moveSpeed = normalSpeed;
         }
     }
 
@@ -188,20 +192,13 @@ public class FPSController : MonoBehaviour
     //--------------------------------------------------------------------
     //ゲッターセッター
     //--------------------------------------------------------------------
-    public float GetSetMoveSpeed
+    public bool GetMoveFlg()
     {
-        get { return moveSpeed; }
-        set { moveSpeed = value; }
+        return moveFlg;
     }
 
-    public float GetSetNormalSpeed
+    public float GetAngleMin()
     {
-        get { return normalSpeed; }
-        set { normalSpeed = value; }
-    }
-
-    public GameObject GetCamera
-    {
-        get { return cam; }
+        return minX;
     }
 }

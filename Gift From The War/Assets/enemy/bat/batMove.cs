@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class batMove : BaseState
+public class batMove : MonoBehaviour
 {
     private CharacterController playerCC;
     private CharacterController batCC;
@@ -11,13 +11,9 @@ public class batMove : BaseState
     Transform rantanTransform;
     [SerializeField] bool moveFlg;
     [SerializeField] float hight;
-    [SerializeField] float forwardAngle;
-    [SerializeField] float playerFromInterval;
-
-    
 
     // Start is called before the first frame update
-    public override void Start()
+    void Start()
     {
         playerCC = GameObject.Find("player").GetComponent<CharacterController>();
         batCC = GetComponent<CharacterController>();
@@ -26,37 +22,11 @@ public class batMove : BaseState
     }
 
     // Update is called once per frame
-    public override void Update()
+    void Update()
     {
-        //体を前に傾ける
-        Transform _myTrans = this.transform;
-
-        Vector3 _localAngle = _myTrans.localEulerAngles;
-
-        _localAngle.x = forwardAngle;
-
-        _myTrans.eulerAngles = _localAngle;
-
-        //移動する場合
         if (moveFlg)
         {
-            Vector3 _playerPos = playerCC.transform.position;
-            Vector3 _myPos = this.transform.position;
-
-            //プレイヤーに近づきすぎない処理
-            float dis = Vector3.Distance(_myPos,_playerPos);
-
-            //プレイヤーとの距離を調べる
-            if(dis <= playerFromInterval)
-            {
-                //近づきすぎている場合
-                _agent.destination = _myPos;
-            }
-            else
-            {
-                //離れている場合
-                _agent.destination = _playerPos;
-            }
+            _agent.destination = playerCC.transform.position;
         }
 
         rantanTransform.position += new Vector3(0, hight, 0);
