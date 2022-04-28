@@ -7,7 +7,7 @@ public class FPSController : MonoBehaviour
 {
     private float moveSpeed;
     [SerializeField] private float normalSpeed = 3; // 移動速度
-    [SerializeField] private float dashSpeedRaito = 3;//走る速さの倍率
+    [SerializeField] private float dashSpeedRaito = 3; //走る速さの倍率
     [SerializeField] private float jumpPower = 3; // ジャンプ力
     [SerializeField] private float fallSpeed = 3; //落下スピード
     [SerializeField] private float jumpingMoveSpeedRaito = 3; //ジャンプ中の移動速度補正
