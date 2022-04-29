@@ -49,12 +49,20 @@ public class batMove : BaseState
             {
                 //‹ß‚Ã‚«‚·‚¬‚Ä‚¢‚éê‡
                 _agent.destination = _myPos;
+                BatController batCon = gameObject.GetComponent<BatController>();
+
+                BaseState state = GetComponent<WingFoldState>();
+
+                batCon.ChangeState(state);
+                //‘ŠúƒŠƒ^[ƒ“
+                return;
             }
             else
             {
                 //—£‚ê‚Ä‚¢‚éê‡
                 _agent.destination = _playerPos;
             }
+
         }
 
         rantanTransform.position += new Vector3(0, hight, 0);
