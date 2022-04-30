@@ -8,10 +8,8 @@ public class batMove : BaseState
     private CharacterController playerCC;
     private CharacterController batCC;
     private NavMeshAgent _agent;
-    Transform rantanTransform;
+    Transform defaltTransform;
     [SerializeField] bool moveFlg;
-    [SerializeField] float hight;
-    [SerializeField] float forwardAngle;
     [SerializeField] float playerFromInterval;
 
     // Start is called before the first frame update
@@ -19,27 +17,24 @@ public class batMove : BaseState
     {
         playerCC = GameObject.Find("player").GetComponent<CharacterController>();
         batCC = GetComponent<CharacterController>();
+        myController = GetComponent<BatController>();
         _agent = GetComponent<NavMeshAgent>();
-        rantanTransform = GetComponent<Transform>();
+        defaltTransform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     public override void Update()
     {
         //体を前に傾ける
-        Transform _myTrans = this.transform;
-
-        Vector3 _localAngle = _myTrans.localEulerAngles;
-
-        _localAngle.x = forwardAngle;
-
-        _myTrans.eulerAngles = _localAngle;
+        Vector3 _localAngle = transform.localEulerAngles;
+        _localAngle.x = myController.forwardAngle;
+        transform.localEulerAngles = _localAngle;
 
         //移動する場合
         if (moveFlg)
         {
             Vector3 _playerPos = playerCC.transform.position;
-            Vector3 _myPos = this.transform.position;
+            Vector3 _myPos = transform.position;
 
             //プレイヤーに近づきすぎない処理
             float dis = Vector3.Distance(_myPos, _playerPos);
@@ -51,9 +46,7 @@ public class batMove : BaseState
                 _agent.destination = _myPos;
                 BatController batCon = gameObject.GetComponent<BatController>();
 
-                BaseState state = GetComponent<WingFoldState>();
-
-                batCon.ChangeState(state);
+                batCon.ChangeState(GetComponent<WingFoldState>());
                 //早期リターン
                 return;
             }
@@ -65,6 +58,6 @@ public class batMove : BaseState
 
         }
 
-        rantanTransform.position += new Vector3(0, hight, 0);
+        transform.position = new Vector3(transform.position.x, myController.hight, transform.position.z);
     }
 }
