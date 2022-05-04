@@ -333,6 +333,8 @@
 "Assets/enemy/bat/BaseState.cs"
 "Assets/enemy/bat/BatController.cs"
 "Assets/enemy/bat/batMove.cs"
+"Assets/enemy/bat/UltraSound.cs"
+"Assets/enemy/bat/UltraSoundBeam.cs"
 "Assets/enemy/bat/WingFoldState.cs"
 "Assets/enemy/boss/bossMove.cs"
 "Assets/enterFinish.cs"
