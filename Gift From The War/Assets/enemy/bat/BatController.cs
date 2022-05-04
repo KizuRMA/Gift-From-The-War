@@ -5,10 +5,17 @@ using UnityEngine;
 public class BatController : MonoBehaviour
 {
     BaseState state;
+    public float hight { get; set; }
+    public float forwardAngle { get; set; }
+    [SerializeField] public float defaltHight;
+    [SerializeField] public float defaltForwardAngle;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        hight = defaltHight;
+        forwardAngle = defaltForwardAngle;
         //ステートを切り替える
         ChangeState(GetComponent<batMove>());
     }
