@@ -24,7 +24,7 @@ public class BatController : MonoBehaviour
     void Update()
     {
         state.Update();
-        Debug.Log(hight);
+        //Debug.Log(hight);
     }
 
     public void ChangeState(BaseState _state)

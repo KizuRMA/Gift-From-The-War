@@ -112,6 +112,5 @@ public class batMove : BaseState
                 untilLaunch = Time.time;
             }
         }
-
     }
 }

@@ -106,7 +106,21 @@ public class WingFoldState : BaseState
         {
             //現在の高さを記録しておく
             myController.hight = _raycastHit.distance;
-            Debug.Log(myController.hight);
+            //Debug.Log(myController.hight);
+        }
+
+        Animator animator = GetComponent<Animator>();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenTheWing") == true)
+        {
+            Debug.Log("ステイトがOpenTheWing");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FlappingWings") == true)
+        {
+            Debug.Log("ステイトがFlappingWings");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FoldTheWings") == true)
+        {
+            Debug.Log("ステイトがFoldTheWings");
         }
     }
 
@@ -219,14 +233,12 @@ public class WingFoldState : BaseState
             nextAnime = true;
         }
 
+        
+
         if (Vector3.Distance(targetPos,transform.position) <= 0.001f)
         {
             animator.SetInteger("trans", 0);
 
-            if(animator.GetAnimatorTransitionInfo(0).IsName("FlappingWings"))
-            {
-                Debug.Log("切り替わっている");
-            }
             ////コウモリを追跡ステートに切り替える
             //BatController batCon = gameObject.GetComponent<BatController>();
             //batCon.ChangeState(GetComponent<batMove>());
