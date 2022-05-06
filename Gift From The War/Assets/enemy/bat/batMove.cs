@@ -49,7 +49,7 @@ public class batMove : BaseState
         Ray _ray = new Ray(transform.position, Vector3.up);
         RaycastHit _raycastHit;
         bool _hit = Physics.Raycast(_ray, out _raycastHit);
-        
+
         //ステージの立幅を記録
         float _hight = _raycastHit.distance;
 
@@ -68,6 +68,7 @@ public class batMove : BaseState
 
         //ナビメッシュのスピードを用いてコウモリの高さを調整する
         transform.position = Vector3.MoveTowards(nowPos, nextPos, agent.speed);
+
         //次のフレームでは現在のY軸が保存されないため、記録しておく。
         myController.hight = transform.position.y;
 

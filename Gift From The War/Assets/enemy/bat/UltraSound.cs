@@ -60,7 +60,7 @@ public class UltraSound : MonoBehaviour
 
         //’´‰¹”g‚Ì’·‚³‚É’²®‚·‚é
         _targetVec = _targetVec.normalized * length;
-        
+
         //’´‰¹”g–{‘Ì‚ÌÀ•W‚ğZo
         Vector3 _pos = _firePos + _targetVec;
 
@@ -89,7 +89,7 @@ public class UltraSound : MonoBehaviour
             lineRenderer.hideFlags = HideFlags.HideInHierarchy;
         }
 
-        Debug.Log(_distance);
+        //Debug.Log(_distance);
 
         //’´‰¹”g‚Æ‚Ì‹——£‚ª‹ß‚¢ê‡
         if (_distance <= 0.4f)

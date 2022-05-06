@@ -62,7 +62,7 @@ public class UltraSoundBeam : MonoBehaviour
 
         float dot = Vector3.Dot(transform.forward.normalized,_targetVec.normalized);
 
-        Debug.Log(Mathf.Acos(dot) * Mathf.Rad2Deg);
+        //Debug.Log(Mathf.Acos(dot) * Mathf.Rad2Deg);
         if (Mathf.Acos(dot) * Mathf.Rad2Deg <= 20.0f)
         {
             //プレイヤーの方向に対する超音波の射程距離を出す。
@@ -77,8 +77,8 @@ public class UltraSoundBeam : MonoBehaviour
                 //プレイヤーに向かってレイを発射
                 bool hit = Physics.Raycast(_ray, out _raycastHit, withinRange);
 
-                Debug.Log(_raycastHit.collider.gameObject);
-                Debug.Log("超音波が当たった！！");
+                //Debug.Log(_raycastHit.collider.gameObject);
+                //Debug.Log("超音波が当たった！！");
             }
         }
 
