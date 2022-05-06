@@ -12,8 +12,8 @@ public class WingFoldState : BaseState
         leave,
     }
 
-
     [SerializeField] float ultrasoundCoolTime;
+    [SerializeField] float ascendingSpeed;
     private Vector3 rayPosition;
     private Vector3 targetPos;
     private RaycastHit hit;
@@ -25,6 +25,8 @@ public class WingFoldState : BaseState
     private e_Action nowAction;
     private float rotateY;
     private float untilLaunch;
+    private float amountChangeAngX;
+    private float amountChangeDis;
 
     // Start is called before the first frame update
     public override void Start()
@@ -75,20 +77,20 @@ public class WingFoldState : BaseState
         }
         else
         {
-            transform.eulerAngles = new Vector3(myController.forwardAngle, transform.eulerAngles.y, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(myController.forwardAngle, rotateY, 0);
         }
 
         //現在のアクション状態毎に関数を実行する
-        switch(nowAction)
+        switch (nowAction)
         {
             case e_Action.none:
                 ActionNone();
                 break;
-                //張り付き状態の時
+            //張り付き状態の時
             case e_Action.sticking:
                 ActionSticking();
                 break;
-                //離れる状態の時
+            //離れる状態の時
             case e_Action.leave:
                 ActionLeave();
                 break;
@@ -104,26 +106,44 @@ public class WingFoldState : BaseState
         {
             //現在の高さを記録しておく
             myController.hight = _raycastHit.distance;
+            //Debug.Log(myController.hight);
+        }
+
+        Animator animator = GetComponent<Animator>();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenTheWing") == true)
+        {
+            Debug.Log("ステイトがOpenTheWing");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FlappingWings") == true)
+        {
+            Debug.Log("ステイトがFlappingWings");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FoldTheWings") == true)
+        {
+            Debug.Log("ステイトがFoldTheWings");
         }
     }
 
     private void ActionSticking()
     {
+        Animator animator = GetComponent<Animator>();
+
         //ターゲットとしている座標までの距離を調べる
         float _targetDis = Vector3.Distance(transform.position, targetPos);
 
-        //天井との距離が少しでも離れている場合、または逆さまになっていない場合
-        if (_targetDis >= 0.001f || myController.forwardAngle < 180.0f)
+        //天井との距離が移動量よりも大きい、または逆さまになっていない場合
+        if (_targetDis >= ascendingSpeed || myController.forwardAngle < 180.0f)
         {
-            //上に上昇する処理
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, 0.001f);
+            //上に移動する処理
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, ascendingSpeed);
             _targetDis = Vector3.Distance(transform.position, targetPos);
         }
-        //天井との距離が０に近い場合
         else
         {
-            //アクション状態をなしにする
+            //アクション状態を変更する
             nowAction = e_Action.none;
+            nextAnime = false;
+            return;
         }
 
         //天井との高さが近い場合
@@ -132,7 +152,7 @@ public class WingFoldState : BaseState
             //コウモリが180度回転していない場合
             if (myController.forwardAngle < 180.0f)
             {
-                myController.forwardAngle += 0.3f;
+                myController.forwardAngle += 1.0f;
 
                 if (myController.forwardAngle >= 180.0f)
                 {
@@ -143,7 +163,6 @@ public class WingFoldState : BaseState
             if (nextAnime == false)
             {
                 //羽を閉じるアニメーションに切り替える
-                Animator animator = GetComponent<Animator>();
                 animator.SetInteger("trans", 1);
                 nextAnime = true;
             }
@@ -164,6 +183,9 @@ public class WingFoldState : BaseState
                 //アクション状態を天井から離れる状態に変化
                 nowAction = e_Action.leave;
                 targetPos += Vector3.down * 0.8f;
+                amountChangeDis = Vector3.Distance(targetPos, transform.position);
+                amountChangeAngX = myController.forwardAngle - 20.0f;
+                Debug.Log(amountChangeAngX);
                 ultrasound.Init();
                 return;
             }
@@ -179,27 +201,49 @@ public class WingFoldState : BaseState
 
     private void ActionLeave()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, 0.005f);
+        //翼を広げるアニメーションに変更
+        Animator animator = GetComponent<Animator>();
+        float _nowTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-        //コウモリが180度回転していない場合
-        if (myController.forwardAngle > 20.0f)
+       // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+
+        if (_nowTime <= 0.0f)
         {
-            myController.forwardAngle -= 2.0f;
+            //コウモリ移動処理
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, amountChangeDis / 180.0f);
 
-            if (myController.forwardAngle <= 20.0f)
+            //コウモリの回転処理
+            if (myController.forwardAngle > 20.0f)
             {
-                myController.forwardAngle = 20.0f;
+                //変化する値
+                float _changeAng = (amountChangeAngX / 180.0f);
+                myController.forwardAngle -= _changeAng;
+
+                if (myController.forwardAngle <= 20.0f)
+                {
+                    myController.forwardAngle = 20.0f;
+                }
             }
         }
 
-        //アニメーション切り替え処理
-        Animator animator = GetComponent<Animator>();
-        animator.SetInteger("trans", 2);
+        if (nextAnime == false)
+        {
+            //羽を閉じるアニメーションに切り替える
+            animator.SetInteger("trans", 2);
+            nextAnime = true;
+        }
 
-        ////コウモリを追跡ステートに切り替える
-        //BatController batCon = gameObject.GetComponent<BatController>();
-        //batCon.ChangeState(GetComponent<batMove>());
-        //return;
+        
+
+        if (Vector3.Distance(targetPos,transform.position) <= 0.001f)
+        {
+            animator.SetInteger("trans", 0);
+
+            ////コウモリを追跡ステートに切り替える
+            //BatController batCon = gameObject.GetComponent<BatController>();
+            //batCon.ChangeState(GetComponent<batMove>());
+            //return;
+        }
     }
 
 }

@@ -9,7 +9,7 @@ public class BatController : MonoBehaviour
     public float forwardAngle { get; set; }
     [SerializeField] public float defaltHight;
     [SerializeField] public float defaltForwardAngle;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class BatController : MonoBehaviour
     void Update()
     {
         state.Update();
+        //Debug.Log(hight);
     }
 
     public void ChangeState(BaseState _state)

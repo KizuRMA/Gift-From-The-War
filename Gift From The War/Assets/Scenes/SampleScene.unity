@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ultrasoundCoolTime: 10
+  ascendingSpeed: 0.001
 --- !u!120 &425230336
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -779,7 +780,7 @@ MonoBehaviour:
   longestLength: 5
   duration: 10
   length: 0
-  velocity: 0.0008
+  velocity: 0.005
 --- !u!1 &456840644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: d2ea75c857565ea4d95ea71c44e546dd, type: 3}
