@@ -41,7 +41,7 @@ public class WingFoldState : BaseState
         playerCC = GameObject.Find("player").GetComponent<CharacterController>();
 
         ultrasound = GetComponent<UltraSound>();
-        ultrasound.Start();
+        ultrasound.Init();
 
         //ナビメッシュによるオブジェクトの回転を更新しない
         agent.isStopped = true;
@@ -108,24 +108,12 @@ public class WingFoldState : BaseState
             myController.hight = _raycastHit.distance;
             //Debug.Log(myController.hight);
         }
-
-        Animator animator = GetComponent<Animator>();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenTheWing") == true)
-        {
-            Debug.Log("ステイトがOpenTheWing");
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FlappingWings") == true)
-        {
-            Debug.Log("ステイトがFlappingWings");
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("FoldTheWings") == true)
-        {
-            Debug.Log("ステイトがFoldTheWings");
-        }
     }
 
     private void ActionSticking()
     {
+        GameObject.Find("CollisionDetector").GetComponent<BoxCollider>().enabled = false;
+
         Animator animator = GetComponent<Animator>();
 
         //ターゲットとしている座標までの距離を調べる
@@ -142,12 +130,13 @@ public class WingFoldState : BaseState
         {
             //アクション状態を変更する
             nowAction = e_Action.none;
+            untilLaunch = Time.time;
             nextAnime = false;
             return;
         }
 
         //天井との高さが近い場合
-        if (_targetDis <= 0.3f)
+        if (_targetDis <= 0.5f)
         {
             //コウモリが180度回転していない場合
             if (myController.forwardAngle < 180.0f)
@@ -185,6 +174,8 @@ public class WingFoldState : BaseState
                 targetPos += Vector3.down * 0.8f;
                 amountChangeDis = Vector3.Distance(targetPos, transform.position);
                 amountChangeAngX = myController.forwardAngle - 20.0f;
+                Animator animator = GetComponent<Animator>();
+                animator.SetInteger("trans", 2);
                 Debug.Log(amountChangeAngX);
                 ultrasound.Init();
                 return;
@@ -205,44 +196,40 @@ public class WingFoldState : BaseState
         Animator animator = GetComponent<Animator>();
         float _nowTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-       // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        //コウモリ移動処理
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, amountChangeDis / 180.0f);
 
-        if (_nowTime <= 0.0f)
+        //コウモリの回転処理
+        if (myController.forwardAngle > 20.0f)
         {
-            //コウモリ移動処理
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, amountChangeDis / 180.0f);
+            //変化する値
+            float _changeAng = (amountChangeAngX / 180.0f);
+            myController.forwardAngle -= _changeAng;
 
-            //コウモリの回転処理
-            if (myController.forwardAngle > 20.0f)
+            if (myController.forwardAngle <= 20.0f)
             {
-                //変化する値
-                float _changeAng = (amountChangeAngX / 180.0f);
-                myController.forwardAngle -= _changeAng;
-
-                if (myController.forwardAngle <= 20.0f)
-                {
-                    myController.forwardAngle = 20.0f;
-                }
+                myController.forwardAngle = 20.0f;
             }
         }
 
-        if (nextAnime == false)
-        {
-            //羽を閉じるアニメーションに切り替える
-            animator.SetInteger("trans", 2);
-            nextAnime = true;
-        }
-
-        
-
-        if (Vector3.Distance(targetPos,transform.position) <= 0.001f)
+        if (Vector3.Distance(targetPos, transform.position) <= 0.001f)
         {
             animator.SetInteger("trans", 0);
 
-            ////コウモリを追跡ステートに切り替える
-            //BatController batCon = gameObject.GetComponent<BatController>();
-            //batCon.ChangeState(GetComponent<batMove>());
-            //return;
+            GameObject.Find("CollisionDetector").GetComponent<BoxCollider>().enabled = true;
+
+            //コウモリを追跡ステートに切り替える
+            BatController batCon = gameObject.GetComponent<BatController>();
+            batCon.ChangeState(GetComponent<batMove>());
+            return;
+        }
+    }
+
+    public void OnDetectorObject(Collider collider)
+    {
+        if (nowAction == e_Action.sticking)
+        {
+            GameObject.Find("CollisionDetector").GetComponent<BoxCollider>().enabled = false;
         }
     }
 

@@ -16,7 +16,8 @@ public class UltraSound : MonoBehaviour
     private float nowTime;
     private bool aliveFlg;
 
-    public void Start()
+
+    private void Awake()
     {
         playerCC = GameObject.Find("player").GetComponent<CharacterController>();
 

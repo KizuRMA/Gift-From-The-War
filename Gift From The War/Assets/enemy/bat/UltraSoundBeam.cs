@@ -16,9 +16,7 @@ public class UltraSoundBeam : MonoBehaviour
     private float nowTime;
     private bool aliveFlg;
 
-
-    // Start is called before the first frame update
-    public void Start()
+    private void Awake()
     {
         playerCC = GameObject.Find("player").GetComponent<CharacterController>();
 

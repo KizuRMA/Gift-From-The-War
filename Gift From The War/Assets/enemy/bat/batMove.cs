@@ -27,9 +27,9 @@ public class batMove : BaseState
 
         //超音波を初期化
         ultrasound = GetComponent<UltraSoundBeam>();
-        ultrasound.Start();
+        ultrasound.Init();
 
-        untilLaunch = 0;
+        untilLaunch = Time.time; ;
 
         agent.isStopped = false;
         agent.updateUpAxis = true;
@@ -53,6 +53,8 @@ public class batMove : BaseState
         //ステージの立幅を記録
         float _hight = _raycastHit.distance;
 
+        Debug.Log(_raycastHit.collider.gameObject);
+
         //ステージの縦幅の４割の位置にいるようにする
         _hight *= 0.4f;
         //コウモリの飛行上限を設定する
@@ -62,15 +64,17 @@ public class batMove : BaseState
         }
 
         //現在のコウモリを高さを含んだ座標
-        Vector3 nowPos = new Vector3(transform.position.x, transform.position.y + myController.hight, transform.position.z);
+        Vector3 nowPos = new Vector3(transform.position.x,myController.hight, transform.position.z);
         //本来いてほしい座標
-        Vector3 nextPos = new Vector3(transform.position.x, transform.position.y + _hight, transform.position.z);
+        Vector3 nextPos = new Vector3(transform.position.x,_hight, transform.position.z);
 
         //ナビメッシュのスピードを用いてコウモリの高さを調整する
-        transform.position = Vector3.MoveTowards(nowPos, nextPos, agent.speed);
+        nowPos = Vector3.MoveTowards(nowPos, nextPos, 0.001f);
 
         //次のフレームでは現在のY軸が保存されないため、記録しておく。
-        myController.hight = transform.position.y;
+        myController.hight = nowPos.y;
+
+        transform.position = new Vector3(transform.position.x,transform.position.y + myController.hight,transform.position.z);
 
         //移動する場合
         if (moveFlg)
